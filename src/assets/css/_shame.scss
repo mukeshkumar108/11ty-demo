@@ -1,13 +1,56 @@
 /* -----------------------------------------------------------------------------
-  This is the place for shameful CSS solutions. 
+  This is the place for shameful CSS solutions.
   (Also see: https://csswizardry.com/2013/04/shame-css/)
-  
+
   Make sure to document all those nasty hacks with comments:
- 
+
    1. What part of the codebase does it relate to?
    2. Why was this needed?
    3. How does this fix it?
    4. How might you fix it properly, given more time?
- 
-  ----------------------------------------------------------------------------- 
+
+  -----------------------------------------------------------------------------
 */
+
+.feature-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+	border-top: 1px solid rgb(60, 58, 58);
+	padding-top: 2em;
+	margin-top: 2em;
+
+  @media (min-width: 768px) { /* Adjust breakpoint as needed */
+    flex-wrap: nowrap; /* Force columns to stay in a row */
+  }
+}
+
+.feature-column {
+  flex-basis: 30%; /* Equal width columns */
+
+  @media (max-width: 767px) {
+    flex-basis: 100%; /* Full width on mobile */
+    margin-bottom: 1rem; /* Spacing between columns on mobile */
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  h2 {
+		font-weight: 400;
+    font-size: var(--fluid-1);
+		margin-top: 1rem;
+  }
+
+	p {
+		font-size: 1rem;
+		opacity: 60%;
+	}
+}
+
+.hero {
+	background-image: url(assets/images/hero-bg-image.png);
+
+}

@@ -1,16 +1,21 @@
 <nav class="nav nav--primary" role="navigation" tabindex="-1">
-    {# Nav Links  #}
-    <ul class="nav__menu">
-        {%- for item in collections.all | eleventyNavigation -%}
-            {%- if item.url -%}
-                {%- set isCurrent = (item.url == page.url) -%}
-                {%- set isParent = item.url != '/' and item.url in page.url -%}
-                <li class="nav__item{% if isCurrent or isParent %} nav__item--active{% endif %}">
-                    <a class="nav__link" href="{% if isCurrent %}#main{% else %}{{ item.url | url }}{% endif %}" {% if isCurrent %} aria-current="page" {% endif %}>
-                        {{ item.title }}
-                    </a>
-                </li>
-            {%- endif -%}
-        {%- endfor -%}
-    </ul>
+  <button class="nav__toggle" aria-label="Toggle navigation">
+    <span class="nav__toggle-icon"></span>
+  </button>
+
+  <ul class="nav__menu">
+    <li class="nav__menu-item"><a href="#">About</a></li>
+    <li class="nav__menu-item"><a href="#">Distributors</a></li>
+    <li class="nav__menu-item"><a href="#">Contact</a></li>
+
+    <li class="nav__menu-divider"></li>
+
+    <li class="nav__menu-item">
+      <a href="tel:01638664988" itemscope itemtype="http://schema.org/telephoneNumber">
+        <span class="nav__icon-phone"></span> 01638664988
+      </a>
+    </li>
+    <li class="nav__menu-item"><a href="#"><span class="nav__icon-apply"></span> Apply</a></li>
+    <li class="nav__menu-item"><a href="#"><span class="nav__icon-sign-in"></span> Sign In</a></li>
+  </ul>
 </nav>
